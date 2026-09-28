@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Effata Scheduler – App</title>
+
+  <!-- PWA basics -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#2E1B28" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
+   <link rel="stylesheet" href="styles.css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+
+  <!-- FirebaseUI for Auth -->
+  <link type="text/css" rel="stylesheet"
+        href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+
+ 
+
+</head>
+<body>
+
+  <!-- Simple app nav -->
+  <header class="app-nav">
+    <a href="/">Effata</a>
+    <div>
+      <span id="userInfo" class="muted" style="margin-right: 0.75rem;"></span>
+      <button id="btnSignOut" style="display:none;">Sign out</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Auth UI -->
+    <div id="authContainer" class="card" style="display:none">
+      <h3>Sign in</h3>
+      <p class="muted">Use your Google or email account to access your team schedule.</p>
+      <div id="firebaseui-auth-container"></div>
+    </div>
+
+    <!-- App -->
+    <div id="app" style="display:none">
+      <!-- Week selector -->
+      <div class="card">
+        <div class="row">
+          <div class="field-group">
+            <label>Week starting</label>
+            <input type="date" id="weekStart" />
+          </div>
+          <div class="text-right" style="margin-left:auto;">
+            <span class="muted">
+              Logged in as <span id="userLabel" class="chip"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add / Update shift -->
+      <div class="card">
+        <h3>Add or update a shift</h3>
+        <div class="row">
+          <div class="field-group">
+            <label>Date</label>
+            <input type="date" id="shiftDate" />
+          </div>
+          <div class="field-group">
+            <label>Person</label>
+              <select id="person">
+              <option>Alora</option>
+               <option>Sam</option>
+                <option>Kelly</option>
+                <option>Carolina</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Start</label>
+            <input type="time" id="startTime" value="09:00" />
+          </div>
+          <div class="field-group">
+            <label>End</label>
+            <input type="time" id="endTime" value="17:00" />
+          </div>
+          <div class="field-group">
+            <label>&nbsp;</label>
+            <button id="btnSave" class="primary">Save shift</button>
+          </div>
+        </div>
+        <div class="muted" style="margin-top:.5rem">
+          Tip: Click a row below to load it for quick edits. Delete with the 🗑️ button.
+        </div>
+      </div>
+
+      <!--toggle back and forth week and live view-->
+      <div class="view-toggle">
+  <button id="btnWeekView">Week View</button>
+  <button id="btnMonthView">Month View</button>
+</div>
+
+      <!-- Week view -->
+       <div id="weekView">
+         <div class="card">
+         <div class="row" style="justify-content: space-between; align-items: center;">
+             <h3 style="margin-bottom: 0;">Week view</h3>
+              <button id="btnPrint" class="primary" type="button">Print schedule</button>
+        </div>
+  <div id="hoursSummary" class="muted" style="margin-bottom: 0.75rem;"></div>
+  <table id="tbl">
+          <thead><tr>
+             <th>Date</th>
+             <th>Person</th>
+             <th>Start</th>
+              <th>End</th>
+              <th>Hours</th>
+          <th></th>
+</tr>       
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+<!--Month view-->
+<div id="monthView" style="display:none;">
+  <div class="calendar-header">
+    <button id="prevMonthBtn">‹</button>
+    <h2 id="calendarMonthLabel"></h2>
+    <button id="nextMonthBtn">›</button>
+  </div>
+
+  <div class="calendar-weekdays">
+    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+    <div>Thu</div><div>Fri</div><div>Sat</div>
+  </div>
+
+  <div id="calendarGrid" class="calendar-grid"></div>
+</div>
+</div>
+
+  </main>
+
+<script src="app.js?v=3"></script>
+
+</body>
+</html>

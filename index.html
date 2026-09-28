@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Effata Scheduler</title>
+
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Google Icon Font -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* GLOBAL COLOR CLASSES — updated to #012611 */
+.nav-custom {
+  background-color: #2E1B28 !important;
+}
+
+.btn-custom,
+.btn-large.btn-custom {
+  background-color: #2E1B28 !important;
+}
+
+.footer-custom {
+  background-color: #2E1B28 !important;
+}
+
+.hero-card-custom .card-action a {
+  color: #2E1B28 !important;
+  font-weight: 600;
+}
+
+
+      /* LAYOUT BASICS */
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      main {
+        flex: 1 0 auto;
+      }
+
+      /* HERO STYLES */
+      .hero {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .hero-title {
+        font-weight: 600;
+      }
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background-image: url("./hero.jpeg");
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      /* MOBILE HERO FIX */
+      @media (max-width: 600px) {
+        .hero-container {
+          height: 55vh;
+          background-position: bottom right;
+          background-size: cover;
+        }
+
+        .hero-content {
+          padding: 0 1.5rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-content .btn-large {
+          width: 100%;
+        }
+      }
+      /* HERO TEXT IMPROVEMENTS */
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+}
+
+.hero-content p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  max-width: 650px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+}
+@media (max-width: 600px) {
+  #features {
+    margin-top: 1rem !important;        /* tighter gap from hero */
+  }
+
+  #features .col {
+    margin-bottom: 1rem;                /* closer cards */
+  }
+
+  #features h5 {
+    font-size: 1.05rem;                 /* slightly smaller heading */
+    margin-bottom: 3rem;
+  }
+
+  #features p {
+    font-size: 0.9rem;                  /* smaller body text */
+    line-height: 1.3;                   /* tighter line spacing */
+    max-width: 200px;                   /* keeps lines shorter */
+    margin: 0.25rem auto 0;             /* centers + tightens */
+  }
+}
+
+    </style>
+  </head>
+
+  <body class="grey lighten-4">
+
+    <!-- NAVBAR -->
+    <header>
+      <nav class="nav-custom">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo">Effata</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#features">Features</a></li>
+            <li><a href="/app/" class="btn btn-custom">Open Scheduler</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- FULL HERO -->
+    <div class="hero-container">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="white-text">Effata Scheduler</h1>
+        <p class="white-text flow-text">
+          Weekly schedules made easy.
+        </p>
+        <a href="/app/" class="btn-large btn-custom">Open Scheduler</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- INFO HERO SECTION -->
+     <div class="hero lighten-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Full-width centered hero section -->
+      <div class="col s12 center-align">
+        <h1 class="hero-title" style="color: #0A0F0F;">
+          Simple, clear scheduling for small teams
+        </h1>
+
+        <p class="grey-text text-darken-2" style="max-width: 600px; margin: 0 auto;">
+          Effata Scheduler helps your team coordinate shifts without spreadsheets,
+          email chains, or guesswork. Fast, lightweight, and built for small teams.
+        </p>
+
+        <br />
+
+        <a href="/app/" class="btn-large btn-custom">
+          <i class="material-icons left">schedule</i>
+          Open Scheduler
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+          <!-- FEATURES -->
+<div class="container">
+  <div id="features" class="row center-align" style="margin-top: 1rem;">
+    
+    <div class="col s12 m4">
+      <h5 style="color: #0A0F0F;">
+        <i class="material-icons tiny">lock</i> Secure login
+      </h5>
+      <p>Powered by Firebase Auth with Google and Email sign-in.</p>
+    </div>
+
+    <div class="col s12 m4">
+      <h5 style="color: #0A0F0F;">
+        <i class="material-icons tiny">event</i> Weekly view
+      </h5>
+      <p>See your entire week at a glance, with quick editing tools.</p>
+    </div>
+
+    <div class="col s12 m4">
+      <h5 style="color: #0A0F0F;">
+        <i class="material-icons tiny">cloud_queue</i> Cloud-based
+      </h5>
+      <p>Shifts stored safely in Firestore and always up-to-date.</p>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer footer-custom">
+      <div class="container">
+        © <span id="year"></span> Effata Scheduler
+      </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
