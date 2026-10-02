@@ -65,7 +65,6 @@ const allowedEmails = [
   signInFlow: 'popup',  // 👈 add this back
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
   callbacks: {
     signInSuccessWithAuthResult: () => false
